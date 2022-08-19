@@ -1,5 +1,7 @@
 package edu.java.condition05;
 
+
+//Ctrl + Shift + O: optimize import(import문 최적화)
 import java.util.Random;
 
 public class ConditionMain05 {
@@ -30,15 +32,26 @@ public class ConditionMain05 {
         int jspScore = random.nextInt(101);
         System.out.println("JSP 점수 : " + jspScore);
         
-        double average = (javaScore + sqlScore + jspScore) / 3.0;
-        System.out.println("평균 : " + average);
+        double avg = (javaScore + sqlScore + jspScore) / 3.0;
+        System.out.println("평균 : " + avg);
         
-        if (javaScore >= 40 && sqlScore >= 40 && jspScore >=40 && average >= 60) {
+        if (javaScore >= 40 && sqlScore >= 40 && jspScore >=40 && avg >= 60) {
         System.out.println("합격");
         } else {
         System.out.println("불합격");
         }
         
-    }
+        //2
+        if (javaScore < 40 || sqlScore < 40 || jspScore < 40 || avg < 60) {
+        System.out.println("불합격");
+        } else {
+        System.out.println("합격");
+        }
+        
+        String result = (javaScore >= 40 && sqlScore >= 40 && jspScore >=40 && avg >= 60) ? "합격" : "불합격";
+        System.out.println(result);
+            
 
+    }
+    
 }
