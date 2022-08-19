@@ -37,9 +37,18 @@ public class ConditionMain04 {
         int z = random.nextInt(11);
         System.out.println("z = " + z);
         
-        String num = (z % 2 == 0) ? ("even") : ("odd");
+        String num = (z % 2 == 0) ? ("even") : ("odd"); // 괄호 없어도 됨
         System.out.println("number = " + num);
         
+        
+        //2
+        String evenOrOdd;
+        if (z % 2 ==0) {
+            evenOrOdd = "even";
+        } else {
+            evenOrOdd = "odd";
+        }
+        System.out.println(z + " : " + evenOrOdd);
         
         // 0 이상 10 이하(11 미만)의 정수 난수 2개를 저장.
         // int 타입 변수 bigger에 두 난수 중에서 더 크거나 같은 숫자를 저장.
@@ -51,8 +60,17 @@ public class ConditionMain04 {
         int b = random.nextInt(11);
         System.out.println("b = " + b);
 
-        int bigger = (a >= b) ? (a) : (b);
+        int bigger = (a >= b) ? a : b; 
         System.out.println("bigger = " + bigger);
+        
+        
+        //2
+        int bigger2;
+        if (a > b) {
+            bigger2 = a;
+        } else bigger2 = b;
+        
+        System.out.println(a + " : " + b + " : " + bigger2);
         
     }
 
