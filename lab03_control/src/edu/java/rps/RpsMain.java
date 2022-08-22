@@ -27,7 +27,6 @@ print(computer : user)
         int user = scanner.nextInt();
         
         System.out.println("computer : " + computer);
-
         
         System.out.print("User : Computer = ");
         System.out.println(user + " : " + computer);
