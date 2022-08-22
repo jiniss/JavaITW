@@ -28,21 +28,41 @@ print(computer : user)
         
         System.out.println("computer : " + computer);
         
-        System.out.print("User : Computer = ");
-        System.out.println(user + " : " + computer);
-        
-        if (user == 0 && computer == 2) {
-            System.out.println("<User Win!>");
-        } else if (user == 2 && computer == 0) {
-            System.out.println("<Computer Win!>");
-        } else if (user > computer) {
-            System.out.println("<User Win!>");
-        } else if (user < computer) {
-            System.out.println("<Computer Win!>");
-        } else {
-            System.out.println("<Draw!>");
+        System.out.println("computer(" + computer + ") : user(" + user +")");
+
+        //누가 이겼는지(조건문) 출력
+        if (user == 0) {  //사용자-가위
+            if (computer == 0) {//컴퓨터-가위
+                System.out.println("Tie");
+            } else if (computer == 1) { //컴퓨터-바위
+                System.out.println("Computer win");
+            } else { //컴퓨터-보
+                System.out.println("User win");
+            }
+        } else if (user == 1) { //사용자-바위
+            if (computer == 0) {//컴퓨터-가위
+                System.out.println("User win");
+            } else if (computer == 1) { //컴퓨터-바위
+                System.out.println("Tie");
+            } else { //컴퓨터-보
+                System.out.println("Computer win");
+            }
+        } else { //사용자-보
+            if (computer == 0) {//컴퓨터-가위
+                System.out.println("Computer win");
+            } else if (computer == 1) { //컴퓨터-바위
+                System.out.println("User win");
+            } else { //컴퓨터-보
+                System.out.println("Tie");
+            }
         }
         
     }
 
 }
+        
+
+    
+
+
+
