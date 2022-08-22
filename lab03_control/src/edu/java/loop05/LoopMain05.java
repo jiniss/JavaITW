@@ -11,7 +11,10 @@ public class LoopMain05 {
            // 10의 자릿수 - 10으로 나눈 몫
            int n10 = i / 10;
            
-           if (n1 == 3 || n1 == 6 || n1 == 9 || n10 == 3 || n10 == 6 || n10 == 9) {
+           boolean b1 = (n1 == 3) || (n1 ==6) || (n1 == 9); //1의 자릿수가 3,6,9이면 true 아니면 false
+           boolean b10 = (n10 == 3) || (n10 ==6) || (n10 == 9); //10의 자릿수가 3,6,9이면 true 아니면 false
+           
+           if (b1 || b10) {
                System.out.print("*\t");  
            } else {
                System.out.print(i + "\t");
