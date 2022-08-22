@@ -31,17 +31,18 @@ print(computer : user)
         System.out.println("computer(" + computer + ") : user(" + user +")");
 
         //누가 이겼는지(조건문) 출력
-            if (user == computer) { //비긴 경우
+            int diff = user - computer;
+            if (diff == 0) {
                 System.out.println("Tie");
-            } else if ((user == 0 && computer == 2) 
-                    || (user == 1 && computer == 0) 
-                    || (user == 2 && computer == 1)) {
-                // 사용자가 이기는 경우
+            } else if (diff == 1 || diff == -2) {
                 System.out.println("User win");
             } else {
-                System.out.println("Computer win");
+                System.out.println("Computere win");
             }
-    }
+            
+            //간단하지만 간단하다고 좋은 코드는 아님(이해하기 어려움)
+}
+    
 }
         
 
