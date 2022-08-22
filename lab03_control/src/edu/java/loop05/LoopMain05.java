@@ -14,9 +14,13 @@ public class LoopMain05 {
            boolean b1 = (n1 == 3) || (n1 ==6) || (n1 == 9); //1의 자릿수가 3,6,9이면 true 아니면 false
            boolean b10 = (n10 == 3) || (n10 ==6) || (n10 == 9); //10의 자릿수가 3,6,9이면 true 아니면 false
            
-           if (b1 || b10) {
-               System.out.print("*\t");  
-           } else {
+           if (b1 && b10) {
+               //만약에 1의 자릿수가 3,6,9이고, 10의 자릿수가 3,6,9이면
+               System.out.print("**\t");  
+           } else if (b1 || b10) {
+               //만약에 1의 자릿수 또는 10의 자릿수가 3,6,9이면
+               System.out.print("*\t");
+           } else {    
                System.out.print(i + "\t");
            }
         	
