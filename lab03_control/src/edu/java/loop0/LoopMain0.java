@@ -77,12 +77,12 @@ public class LoopMain0 {
         
         /*
          * 6. for문을 이용해서 다음 코드 출력
-         *
-         **
-         ***
+            *
+           **
+          ***
          ****
          */
-        System.out.println("<6번>");
+        System.out.println("<6번>");{
 
         for (int a = 1; a < 5; a++) {
 
@@ -132,5 +132,5 @@ public class LoopMain0 {
         }
         
     }
-
+    }
 }
