@@ -15,27 +15,21 @@ public class Score {
         this.math = math;
     }
     
-    //세 과목의 점수를 출력하는 메서드.
-    public int korean() {
-        return this.korean;
-    }
-    
-    public int english() {
-        return this.english;
-    }
-    
-    public int math() {
-        return this.math;
+    //세 과목의 점수를 출력하는 메서드. (void는 호출하고 끝. 리턴값X)
+    public void printScore() {
+        System.out.println("국어 : " + this.korean);
+        System.out.println("영어 : " + this.english);
+        System.out.println("수학 : " + this.math);
     }
     
     //세 과목의 총점을 리턴하는 메서드.
-    public int total() {
+    public int getTotal() {
         return this.korean + this.english + this.math;
     }
     
     //세 과목의 평균(소수점까지 계산)을 리턴하는 메서드.
-    public double mean() {
-        return (this.korean + this.english + this.math) / 3.0;
+    public double getAverage() {
+        return (double)(getTotal()) / 3;
     }
 
 }
