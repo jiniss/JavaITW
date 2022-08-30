@@ -11,6 +11,7 @@ public class Account {
     double balance; // 잔고
 
     // constructor - argument 2개를 갖는 생성자.
+    // 매개변수=파라미터
     public Account(int accountNo, double balance) {
         this.accountNo = accountNo;
         this.balance = balance;
@@ -24,8 +25,9 @@ public class Account {
     * @return 입금 후 잔액을 리턴.
     */    
     
-    public void deposit(double amount) {
-        System.out.println("입금 후 잔고 : " + (this.balance += amount) + "원");    
+    public double deposit(double amount) {
+        this.balance += amount;  //this.balance = this.balance + amount
+        return this.balance;
     }
     
     
@@ -36,8 +38,9 @@ public class Account {
      * @return 출금 후 잔액을 리턴.
      */
         
-    public void withdraw(double amount) {
-        System.out.println("출금 후 잔고 : " + (this.balance -= amount) + "원"); 
+    public double withdraw(double amount) {
+        this.balance -= amount;
+        return this.balance;
     }
     
 
@@ -49,10 +52,12 @@ public class Account {
      * @return true(이체 성공). 
      */
     
-    public boolean transfer(Account account2, double amount) {
-        account2 = new Account(account2.accountNo, account2.balance);
+    public boolean transfer(Account to, double amount) {
+        //이체 : (1)내 계좌 출금 (2)상대방 계좌 입금
         this.balance -= amount;
-        account2.balance += amount;
+        to.balance += amount;
+//        this.withdraw(amount);
+//        to.deposit(amount);
         return true; 
     }
 
