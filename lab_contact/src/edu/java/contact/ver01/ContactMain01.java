@@ -2,6 +2,8 @@ package edu.java.contact.ver01;
 
 import java.util.Scanner;
 
+import edu.java.contact.menu.MainMenu;
+
 public class ContactMain01 {
     // 상수
     private static final int MAX_LENGTH = 3; // 저장할 수 있는 연락처의 최대 개수(배열 길이).
@@ -24,23 +26,24 @@ public class ContactMain01 {
             app.showMainMenu();
 
             // 메뉴 입력
-            int menu = Integer.parseInt(app.scanner.nextLine());
-
+            int n = Integer.parseInt(app.scanner.nextLine());
+            MainMenu menu = MainMenu.getValue(n);
+            
             // switch-case
             switch (menu) {
-            case 0: // 종료
+            case QUIT: // 종료
                 run = false;
                 break;
-            case 1: // 전체리스트
+            case SELECT_ALL: // 전체리스트
                 app.selectAllContacts();
                 break;
-            case 2: // 인덱스검색
+            case SELECT_BY_INDEX: // 인덱스검색
                 app.selectContactByIndex();
                 break;
-            case 3: // 새연락처 추가
+            case CREAT: // 새연락처 추가
                 app.insertNewContact();
                 break;
-            case 4: // 연락처 정보 수정
+            case UPDATE: // 연락처 정보 수정
                 app.updateContact();
                 break;
             default:
