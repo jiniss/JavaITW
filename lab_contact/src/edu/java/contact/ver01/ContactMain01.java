@@ -28,7 +28,7 @@ public class ContactMain01 {
             // 메뉴 입력
             int n = Integer.parseInt(app.scanner.nextLine());
             MainMenu menu = MainMenu.getValue(n);
-            
+
             // switch-case
             switch (menu) {
             case QUIT: // 종료
@@ -65,84 +65,78 @@ public class ContactMain01 {
 
         int index = Integer.parseInt(scanner.nextLine());
 
-        if (index < 0 || index >= MAX_LENGTH) {
-            System.out.println("인덱스 범위를 초과했습니다. 다시 선택하세요.");
-        } else {
-            if (contacts[index] == null) {
-                System.out.println("등록되지 않은 인덱스입니다. 인덱스를 먼저 등록하세요.");
-            } else {
-                // 수정 전 연락처 정보 출력
-                System.out.print("수정 전>>> ");
-                contacts[index].printContact();
-
-                // 수정할 이름/전화번호/이메일 입력
-                System.out.print("수정할 이름>> ");
-                String name = scanner.nextLine();
-
-                System.out.print("수정할 전화번호>> ");
-                String phone = scanner.nextLine();
-
-                System.out.print("수정할 이메일>> ");
-                String email = scanner.nextLine();
-
-                // 연락처 정보 업데이트.
-                contacts[index].setName(name);
-                contacts[index].setPhone(phone);
-                contacts[index].setEmail(email);
-
-                // 수정 후 연락처 정보 출력
-                System.out.print("수정 후>>> ");
-                contacts[index].printContact();
-            }
+        if (index < 0 || index >= count) { // MAX_LENGTH가 아닌 count
+            System.out.println("해당 인덱스에는 수정할 연락처 정보가 없습니다.");
+            return;
         }
+        
+            // 수정 전 연락처 정보 출력
+            System.out.print("수정 전>>> ");
+            contacts[index].printContact();
+
+            // 수정할 이름/전화번호/이메일 입력
+            System.out.print("수정할 이름>> ");
+            String name = scanner.nextLine();
+
+            System.out.print("수정할 전화번호>> ");
+            String phone = scanner.nextLine();
+
+            System.out.print("수정할 이메일>> ");
+            String email = scanner.nextLine();
+
+            // 연락처 정보 업데이트.
+            contacts[index].setName(name);
+            contacts[index].setPhone(phone);
+            contacts[index].setEmail(email);
+
+            // 수정 후 연락처 정보 출력
+            System.out.print("수정 후>>> ");
+            contacts[index].printContact();
     }
+    
 
     private void selectContactByIndex() {
-        // NullPointerException 또는 ArrayIndexOutOfBoundsException 발생할 수 있음.
-
         // 검색할 인덱스 입력
         System.out.print("검색할 인덱스>> ");
         int index = Integer.parseInt(scanner.nextLine());
         // static이 아닌 메서드라 메서드를 호출했을때 실행됨(메서드를 호출하려면 객체를 먼저 생성해야함
         // (this.)scanner가 생략된 것. app. 쓰지 않음(이미 호출할 때 app.을 썼음)
 
-        if (index < 0 || index >= MAX_LENGTH) {
-            System.out.println("인덱스 범위를 초과했습니다. 다시 선택하세요.");
-        } else {
-            if (contacts[index] == null) {
-                System.out.println("등록되지 않은 인덱스입니다. 인덱스를 먼저 등록하세요.");
-            } else {
-                // 해당 인덱스의 연락처 정보를 출력
-                contacts[index].printContact();
-            }
+        // NullPointerException 또는 ArrayIndexOutOfBoundsException 발생할 수 있음.
+        if (index < 0 || index >= count) { // MAX_LENGTH가 아니라 count(등록된 개수)
+            System.out.println("해당 인덱스에는 연락처 정보가 없습니다.");
+            return; // 메서드 종료.
+            // if문 내 return: 조건만족시 if문을 실행 + 상황 종료, 조건불만족시 if문 아래에 작성된 출력문 실행.
         }
+        // 해당 인덱스의 연락처 정보를 출력
+        contacts[index].printContact();
+
     }
 
     private void insertNewContact() {
         // ArrayIndexOutOfBoundsException 발생할 수 있음.
 
-        //if 배열의 인덱스가 MAX상수 범위 내일 경우 실행. else 오류문 출력
-        if (count < MAX_LENGTH) {
-         // 이름, 전화번호, 이메일 입력
-            System.out.print("이름을 입력>> ");
-            String name = scanner.nextLine();
-
-            System.out.print("전화번호 입력>> ");
-            String phone = scanner.nextLine();
-
-            System.out.print("이메일 입력>> ");
-            String email = scanner.nextLine();
-
-            // Contact 객체 생성
-            Contact c = new Contact(name, phone, email);
-
-            // 배열에 추가
-            contacts[count] = c;
-            count++; // 배열에 저장된 연락처 개수를 1 증가.
-        } else {
-            System.out.println("최대 연락처 개수를 초과하였습니다.");
+        if (count >= MAX_LENGTH) {
+            System.out.println("새 연락처를 저장할 공간이 부족합니다.");
+            return;
         }
-        
+        // 이름, 전화번호, 이메일 입력
+        System.out.print("이름을 입력>> ");
+        String name = scanner.nextLine();
+
+        System.out.print("전화번호 입력>> ");
+        String phone = scanner.nextLine();
+
+        System.out.print("이메일 입력>> ");
+        String email = scanner.nextLine();
+
+        // Contact 객체 생성
+        Contact c = new Contact(name, phone, email);
+
+        // 배열에 추가
+        contacts[count] = c;
+        count++; // 배열에 저장된 연락처 개수를 1 증가.
+
     }
 
     private void selectAllContacts() {
